@@ -23,6 +23,23 @@ document.addEventListener('scrollend', () => {
 });
 
 // 4. load
+const welcome = document.querySelector('header.intro h2');
+console.log(welcome);
+window.addEventListener('load', event => {
+    let start = Date.now();
+    let timer = setInterval(() => {
+        let timePassed = Date.now() - start;
+        if (timePassed >= 1500) {
+            clearInterval(timer);
+            home.style.color = 'black';
+            return;
+        }
+        draw(timePassed);
+    }, 20)
+});
+function draw (timePassed) {
+    welcome.style['font-size'] = timePassed / 183 + 'rem'
+}
 
 // 5. focus
 
