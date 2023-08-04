@@ -22,7 +22,7 @@ document.addEventListener('scrollend', () => {
     }, 0);
 });
 
-// 4. load
+// 5. load
 const welcome = document.querySelector('header.intro h2');
 console.log(welcome);
 window.addEventListener('load', event => {
@@ -42,6 +42,23 @@ function draw (timePassed) {
 }
 
 // 5. focus
+const pics = document.querySelectorAll('.img-content');
+pics.forEach(img => {
+    img.addEventListener('focus', event => {
+        let start = Date.now();
+        let timer = setInterval(() => {
+            let timePassed = Date.now() - start;
+            if (timePassed >= 1000) {
+                clearInterval(timer);
+                return;
+            }
+            grow(timePassed);
+        }, 20);
+    });
+});
+function grow (timePassed) {
+    pics.style.width = pics.style.width + timePassed / 183 + '%'
+};
 
 // 6. resize
 
