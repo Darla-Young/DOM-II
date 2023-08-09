@@ -24,7 +24,6 @@ document.addEventListener('scrollend', () => {
 
 // 5. load
 const welcome = document.querySelector('header.intro h2');
-console.log(welcome);
 window.addEventListener('load', event => {
     let start = Date.now();
     let timer = setInterval(() => {
@@ -41,31 +40,25 @@ function draw (timePassed) {
     welcome.style['font-size'] = timePassed / 183 + 'rem'
 }
 
-// 5. focus
-const pics = document.querySelectorAll('.img-content');
-pics.forEach(img => {
-    img.addEventListener('focus', event => {
-        let start = Date.now();
-        let timer = setInterval(() => {
-            let timePassed = Date.now() - start;
-            if (timePassed >= 1000) {
-                clearInterval(timer);
-                return;
-            }
-            grow(timePassed);
-        }, 20);
-    });
-});
-function grow (timePassed) {
-    pics.style.width = pics.style.width + timePassed / 183 + '%'
-};
+// 6. focus & 
+// 7. blur
+const pics = document.querySelectorAll('.content-section .img-content img');
+pics.forEach(pic => {
+    pic.setAttribute('tabindex', '0');
+    pic.addEventListener('focus', event => {
+        event.target.style.border = "10px dotted yellow";
+    }, true);
+    pic.addEventListener('blur', event => {
+        event.target.style.border = "";
+    }, true);
+})
 
-// 6. resize
+// resize
 
-// 7. scroll
+// scroll
 
-// 8. select
+// select
 
-// 9. dblclick
+// dblclick
 
-// 10. drag / drop
+// drag / drop
