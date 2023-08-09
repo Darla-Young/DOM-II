@@ -53,7 +53,21 @@ pics.forEach(pic => {
     }, true);
 })
 
-// resize
+// 8. resize
+window.addEventListener('resize', event => {
+    function setColor(event) {
+        event.target.document.body.setAttribute('style', 'color: ' + getRandomColor() + ';');
+    }
+    setTimeout(setColor, 500, event);
+});
+function getRandomColor() {
+    let letters = '0123456789ABCDEF'.split('');
+    let color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.round(Math.random() * 15)];
+    }
+    return color;
+}
 
 // scroll
 
