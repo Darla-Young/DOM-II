@@ -1,4 +1,5 @@
 import './less/index.less'
+import party from 'party-js';
 
 // 1. mouseover &
 // 2. mouseout
@@ -69,9 +70,17 @@ function getRandomColor() {
     return color;
 }
 
-// scroll
+// select - must be on an input or textarea field.
+const destSect = document.querySelector('.content-destination h2');
+const newField = document.createElement('input');
+destSect.appendChild(newField);
+newField.type = 'text';
+newField.setAttribute('style', 'margin-left: 50px;');
+newField.value = 'HIGHLIGHT ME!';
 
-// select
+newField.addEventListener('select', event => {
+    party.confetti(event.target);
+});
 
 // dblclick
 
