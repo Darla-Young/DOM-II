@@ -70,18 +70,24 @@ function getRandomColor() {
     return color;
 }
 
-// select - must be on an input or textarea field.
+// 9. click &
+// 10. select
 const destSect = document.querySelector('.content-destination h2');
 const newField = document.createElement('input');
 destSect.appendChild(newField);
 newField.type = 'text';
-newField.setAttribute('style', 'margin-left: 50px;');
+newField.setAttribute('style', 'margin-left: 50px; text-align: center');
 newField.value = 'HIGHLIGHT ME!';
 
+newField.addEventListener('click', event => {
+    event.preventDefault();
+    newField.select();
+});
 newField.addEventListener('select', event => {
     party.confetti(event.target);
 });
 
-// dblclick
-
-// drag / drop
+// 11. dblclick
+window.addEventListener('dblclick', event => {
+    console.log(event.target + ' - this does nothing');
+});
