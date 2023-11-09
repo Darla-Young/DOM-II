@@ -25,7 +25,7 @@ document.addEventListener('scrollend', () => {
 
 // 5. load
 const welcome = document.querySelector('header.intro h2');
-window.addEventListener('load', event => {
+window.addEventListener('load', () => {
     let start = Date.now();
     let timer = setInterval(() => {
         let timePassed = Date.now() - start;

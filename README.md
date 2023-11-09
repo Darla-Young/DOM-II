@@ -1,3 +1,17 @@
+# Fun Buss
+
+**imports**
+less (for styling)
+party-js: party (confetti effect)
+
+**keywords**
+addEventListener
+querySelector
+setTimeout
+Date.now()
+Math.random() / .round()
+preventDefault()
+
 # DOM II
 [link](mocks\img\FunBus.png)
 
